@@ -1,0 +1,22 @@
+PRÓXIMA AULA 219 'Copiando a base para o projeto'
+
+Lembrando que a aplicação até aqui localmente não está funcionando as rotas através dos links do menu (em nenhum aluno do curso). Mas a que eu subi no Vercel está funcionando normalmente (https://react-project-base.vercel.app/).
+
+
+
+## SOLUÇÂO PARA MOSTRAR APENAS UMA MENSAGEM COM O TOASTIFY ##
+
+ toast.success('Eu uso um ID personalizado', {
+    toastId: 'customId',
+  });
+  OU
+  toast.error('Eu uso um ID personalizado', {
+     toastId: 'customId',
+  });
+  ou
+  toast.warn('Eu uso um ID personalizado', {
+     toastId: 'customId',
+  });
+
+ OBS:
+   Estilo global já configurado;

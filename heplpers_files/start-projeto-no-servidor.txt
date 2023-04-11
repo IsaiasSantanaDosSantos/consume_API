@@ -1,0 +1,62 @@
+Comando para iniciar servidor:
+	→ pm2 start /home/ubuntu/api/dist/server.js --name=api
+Confirmar após alguns segundo:
+	→ pm2 ls
+Outra confirmação:
+	→ curl http://localhost:3001
+	Se mostrar "IndexX" que dizer que está tudo ok!
+
+Agora precisa fazer um proxi reverso.
+	Ir para pasta: "/etc/nginx/sites-enabled", com o comando:
+		→ cd /etc/nginx/sites-enabled
+
+Precisa parar o nginx com o comando:
+	→ sudo systemctl stop nginx
+
+Agora é só iniciar o nginx com o comando:
+	→ sudo systemctl start nginx
+
+Para iniciar o servidor:
+	→ pm2 restart api
+
+
+  #### Caso dê pau ao startar API no srvidor ####
+  → pm2 ls
+  → pm2 delete api
+  → pm2 start /home/ubuntu/api/dist/server.js --name 'api'
+  → pm2 ls
+  → curl -X GET http://localhost:3001
+
+  PRECISA RETORNAR ISSO → "IndexX"ubuntu@ip-172-31-0-80:~/api/uploads$
+
+
+### MUDANÇAS NO PROJETO ###
+	Após fazer a mudanças no projeto, devemos fazer o build com o comando:
+	→ npm build
+	Logo após, subir as mudanças para o repositório remoto com os comandos:
+	→ git add .
+	→ git commit -am 'mensagem'
+	→ git push origin master
+	Para setar a branch (caso necessário) após o comando anterior dé o seguinte comando:
+	→ git push origin master -u
+	Ai as próximas vezes que for dar push, só precisará do "git push".
+
+
+###### 	fetch #####
+fetch('https://isaiassantana.com.br/alunos')
+	.then((response) => response.json())
+	.then((json) => console.log(json))
+
+### Configuração Axios ###
+import axios from '../../services/axios';
+
+ React.useEffect(() => {
+    async function getData() {
+      const response = await axios.get('/alunos');
+      const { data } = response;
+      console.log(data);
+    }
+
+    getData();
+  }, []);
+
