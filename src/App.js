@@ -22,7 +22,7 @@ function App() {
         </Router>
       </PersistGate>
     </Provider>
+
   );
 }
-
 export default App;
