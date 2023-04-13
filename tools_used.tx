@@ -1,4 +1,4 @@
-Ferramentas e técnoilogias usadas nesta aplicação:
+Ferramentas e técnoilogias usadas nesta aplicação/API Rest:
 
 → npm;
 → React.js;
@@ -9,3 +9,4 @@ Ferramentas e técnoilogias usadas nesta aplicação:
 → redux;
 → lodash;
 → validator;
+→ express-delay;
