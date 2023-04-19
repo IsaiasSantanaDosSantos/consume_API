@@ -28,4 +28,10 @@ export const Nav = styled.nav`
   a:hover {
     color: ${primaryDarkColor};
   }
+  span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 40px;
+  }
 `;

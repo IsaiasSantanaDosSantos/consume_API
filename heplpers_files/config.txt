@@ -1,4 +1,4 @@
-PRÓXIMA AULA 225 'Componente Loading'
+PRÓXIMA AULA 228 'Logout'
 
 Lembrando que a aplicação até aqui localmente não está funcionando as rotas através dos links do menu (em nenhum aluno do curso). Mas a que eu subi no Vercel está funcionando normalmente (https://react-project-base.vercel.app/).
 
