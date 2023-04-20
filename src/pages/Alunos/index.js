@@ -4,7 +4,7 @@ import { get } from 'lodash';
 import { FaUserCircle, FaEdit, FaTrashRestoreAlt, FaTrash } from 'react-icons/fa';
 
 import { Container } from '../../styles/GlobalStyles';
-import { AlunoContaneir, ProfilePicture } from './styled';
+import { AlunoContaneir, ProfilePicture, NovoAluno } from './styled';
 import axios from '../../services/axios';
 
 import Loading from '../../components/Loading';
@@ -57,6 +57,8 @@ export default function Alunos() {
     <Container>
       <Loading isLoading={isLoading} />
       <h1>Alunos</h1>
+
+      <NovoAluno to="/aluno/">Cadastrar aluno</NovoAluno>
       <AlunoContaneir>
         {alunos.map((aluno, index) => (
           <div key={String(aluno.id)}>
