@@ -4,7 +4,7 @@ import { get } from 'lodash';
 import { FaUserCircle, FaEdit, FaTrashRestoreAlt, FaTrash } from 'react-icons/fa';
 
 import { Container } from '../../styles/GlobalStyles';
-import { AlunoContaneir, ProfilePicture, NovoAluno } from './styled';
+import { AlunoContaneir, ProfilePicture, NovoAluno, Title, HeadersBox } from './styled';
 import axios from '../../services/axios';
 
 import Loading from '../../components/Loading';
@@ -56,9 +56,10 @@ export default function Alunos() {
   return (
     <Container>
       <Loading isLoading={isLoading} />
-      <h1>Alunos</h1>
-
-      <NovoAluno to="/aluno/">Cadastrar aluno</NovoAluno>
+      <HeadersBox>
+        <Title>Alunos</Title>
+        <NovoAluno to="/aluno/">Novo cadastrar</NovoAluno>
+      </HeadersBox>
       <AlunoContaneir>
         {alunos.map((aluno, index) => (
           <div key={String(aluno.id)}>
@@ -66,24 +67,27 @@ export default function Alunos() {
               {get(aluno, 'Fotos[0].url', false) ? (
                 <img crossOrigin="" src={aluno.Fotos[0].url} alt="Image" />
               ) : (
-                <FaUserCircle size={36} />
+                <FaUserCircle size={45} />
               )}
             </ProfilePicture>
-            <span>{aluno.nome}</span>
-            <span>{aluno.email}</span>
-
-            <Link to={`/aluno/${aluno.id}/edit`}>
-              <FaEdit size={16} />
-            </Link>
-            <Link onClick={hendleDeleteAsk} to={`/aluno/${aluno.id}/delete`}>
-              <FaTrash size={16} />
-            </Link>
-            <FaTrashRestoreAlt
-              onClick={(e) => hendleDelete(e, aluno.id, index)}
-              size={16}
-              display="none"
-              cursor="pointer"
-            />
+            <div className="nomeEmailBloco">
+              <span>{aluno.nome}</span>
+              <span>{aluno.email}</span>
+            </div>
+            <div className="iconsBloco">
+              <Link to={`/aluno/${aluno.id}/edit`}>
+                <FaEdit size={16} />
+              </Link>
+              <Link onClick={hendleDeleteAsk} to={`/aluno/${aluno.id}/delete`}>
+                <FaTrash size={16} />
+              </Link>
+              <FaTrashRestoreAlt
+                onClick={(e) => hendleDelete(e, aluno.id, index)}
+                size={16}
+                display="none"
+                cursor="pointer"
+              />
+            </div>
           </div>
         ))}
       </AlunoContaneir>

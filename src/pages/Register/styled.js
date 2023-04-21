@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 import * as colors from '../../config/colors';
 
+export const Title = styled.h1`
+  @media (max-width: 576px) {
+    text-align: center;
+  }
+`;
+
 export const Form = styled.form`
   width: 100%;
   display: flex;
@@ -29,5 +35,9 @@ export const Form = styled.form`
     &:focus {
       border: 1px solid ${colors.primaryColor};
     }
+  }
+
+  button {
+    margin-top: 15px;
   }
 `;

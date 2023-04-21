@@ -15,8 +15,12 @@ export const Form = styled.form`
   }
 `;
 export const Title = styled.h1`
-  text-align: center;
+  text-align: start;
   margin-bottom: 20px;
+
+  @media (max-width: 576px) {
+    text-align: center;
+  }
 `;
 export const ProfilePicture = styled.div`
   display: flex;
