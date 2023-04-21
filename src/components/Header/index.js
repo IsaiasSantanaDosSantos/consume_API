@@ -9,7 +9,6 @@ import { Nav } from './styled';
 
 export default function Header() {
   const dispatch = useDispatch();
-  let sizeWindow = window.outerWidth;
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const nameUser = useSelector((state) => state.auth.user.nome);
 
@@ -22,42 +21,26 @@ export default function Header() {
   return (
     <Nav>
       <div className="navContainer">
-        {sizeWindow > 576 ? (
+        <Link to="/">
+          <FaHome size={24} />
+          <span className="linkName">Home</span>
+        </Link>
+        <Link to="/register">
+          <FaUserAlt size={20} /> <span className="linkName">Register</span>
+        </Link>
+        {isLoggedIn ? (
           <>
-            <Link to="/">
-              <FaHome size={24} />
-              Home
-            </Link>
-            <Link to="/register">
-              <FaUserAlt size={20} />
-              Login
-            </Link>
-            <Link to="/login">
-              <FaSignInAlt size={24} />
-              Sign
+            <Link onClick={handleLogout} to="/logout">
+              <FaPowerOff size={24} />
+              <span className="linkName">Logout</span>
             </Link>
           </>
         ) : (
           <>
-            <Link to="/">
-              <FaHome size={24} />
+            <Link to="/login">
+              <FaSignInAlt size={24} />
+              <span className="linkName">Login</span>
             </Link>
-            <Link to="/register">
-              <FaUserAlt size={20} />
-            </Link>
-            {isLoggedIn ? (
-              <>
-                <Link onClick={handleLogout} to="/logout">
-                  <FaPowerOff size={24} />
-                </Link>
-              </>
-            ) : (
-              <>
-                <Link to="/login">
-                  <FaSignInAlt size={24} />
-                </Link>
-              </>
-            )}
           </>
         )}
         {isLoggedIn && <span>Olá, {nameUser}!</span>}

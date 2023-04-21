@@ -18,19 +18,27 @@ export default createGlobalStyle`
     height: 100%;
   }
   button {
+    display: block;
+    width: auto;
+    margin: auto auto 0 0;
     cursor: pointer;
     background: ${colors.primaryColor};
     border: none;
     color: #fff;
-    padding: 6px 20px;
+    padding: 7px 30px;
     border-radius: 4px;
     font-weight: 700;
-    transition: all 300ms ;
+    transition: all 500ms ease 0s;
+
+    :hover {
+    transform: scale(1.03);
+    }
+    :active {
+    filter: brightness(75%);
+    }
   }
 
-  button:hover {
-    filter: brightness(75%);
-  }
+
   a {
     text-decoration: none;
     color: ${colors.primaryColor};
@@ -45,12 +53,16 @@ export default createGlobalStyle`
   body .Toastify .Toastify__toast-container .Toastify__toast--error {
     background: ${colors.errorColor};
   }
-
+  @media (max-width:576px){
+    button {
+    margin: auto;
+    }
+  }
 
 `;
 
 export const Container = styled.section`
-  max-width: 1000px;
+  max-width: 785px;
   width: 90%;
   background: #fff;
   margin: 30px auto;

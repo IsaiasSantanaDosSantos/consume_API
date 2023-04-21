@@ -16,7 +16,7 @@ export const Container = styled.div`
   div {
     position: absolute;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: 1;
     background: rgba(0, 0, 0, 0.8);
   }

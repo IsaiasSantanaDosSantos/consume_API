@@ -4,9 +4,10 @@ import { isEmail } from 'validator';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Container } from '../../styles/GlobalStyles';
-import { Form } from './styled';
+import { Form, Title } from './styled';
 import Loading from '../../components/Loading';
 import * as actions from '../../store/modules/auth/actions';
+import history from '../../services/history';
 
 export default function Register() {
   const despatch = useDispatch();
@@ -25,7 +26,7 @@ export default function Register() {
 
     setNome(nomeStorage);
     setEmail(emailStorage);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function handleSubmit(e) {
@@ -52,13 +53,14 @@ export default function Register() {
 
     despatch(actions.registerRequest({ nome, email, password, id }));
 
+    history.push('/');
   }
 
   return (
     <Container>
       <Loading isLoading={isLoading} />
 
-      <h1>{id ? 'Editar dados' : 'Crie sua conta'}</h1>
+      <Title>{id ? 'Editar dados' : 'Crie sua conta'}</Title>
 
       <Form onSubmit={handleSubmit}>
         <label htmlFor="nome">
